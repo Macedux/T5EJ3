@@ -1,11 +1,11 @@
 <?php
-require_once 'src/Calculadora.php';
-use App\Calculadora;
+require_once 'src/calculadora.php';
+use App\calculadora;
 $resultado = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $a = isset($_POST['a']) ? floatval($_POST['a']) : 0;
     $b = isset($_POST['b']) ? floatval($_POST['b']) : 0;
-    $calculadora = new Calculadora();
+    $calculadora = new calculadora();
     if (isset($_POST['suma'])) {
         $resultado = $calculadora->suma($a, $b);
     } elseif (isset($_POST['resta'])) {
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calculador PHP</title>
+        <title>Calculadora PHP</title>
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -40,12 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button type="submit" name="resta">Resta</button>
                     <button type="submit" name="multiplicacion">Multiplica</button>
                     <button type="submit" name="division">Divide</button>
-                    <button type="submit" name="raiz">Raíz </button>
+                    <button type="submit" name="raiz">Raíz</button>
                 </div>
             </form>
             <?php if ($resultado !== ''): ?>
                 <div>
-                    <h2>ResultadoS: <?php echo $resultado; ?></h2>
+                    <h2>Resultado: <?php echo $resultado; ?></h2>
                 </div>
             <?php endif; ?>
         </div>
